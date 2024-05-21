@@ -1,11 +1,27 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { Modal } from "@/components/ui/model";
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { useEffect } from "react";
+
+const SetupPage = () => {
+    const onOpen = useStoreModal((state) => state.onOpen);
+    const isOpen = useStoreModal((state) => state.isOpen);
+
+    useEffect(() => {
+      if(!isOpen) {
+        onOpen();
+      }
+    }, [isOpen, onOpen]);
+
   return (
     <>
-    <h1> Olá, Administrador</h1>
-    <Button>Clique aqui</Button>
+    <div className="p-4">
+      Root Page
+    </div>
     </>
   );
 }
+
+export default SetupPage;
+
