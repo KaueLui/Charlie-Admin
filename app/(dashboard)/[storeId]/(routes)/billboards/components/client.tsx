@@ -6,8 +6,20 @@ import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
+import { columns } from "./columns";
+import { DataTable } from "@/components/ui/data-table";
+import { ApiList } from "@/components/ui/api_list";
+import { Billboard } from "@prisma/client";
 
-export const BillboardClient = () => {
+
+
+interface BillboardClientProps {
+    data: Billboard[]
+}
+
+export const BillboardClient: React.FC<BillboardClientProps> = ({
+    data
+}) => {
     const router = useRouter();
     const params = useParams();
 
@@ -16,7 +28,7 @@ export const BillboardClient = () => {
         <>
         <div className="flex items-center justify-between">
            <Heading 
-           title=" Painéis (0)"
+           title={`Painéis (${data.length})`}
            description="Organize os painéis de sua loja"
            />
            <Button onClick={() => router.push(`/${params.storeId}/billboards/new`)}>
@@ -25,6 +37,10 @@ export const BillboardClient = () => {
            </Button>
         </div>
         <Separator />
+        <DataTable searchKey="label" columns={columns} data={data} />
+        <Heading title="API" description="API chamadas do Painel" />
+        <Separator />
+        <ApiList entityName="billboards" entityIdName="billboardId" />
         </>
     );
 }

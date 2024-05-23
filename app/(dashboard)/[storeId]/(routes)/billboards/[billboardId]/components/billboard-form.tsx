@@ -15,8 +15,6 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiAlert } from "@/components/ui/api.alert";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
 
 interface BillboardFormProps {
@@ -35,7 +33,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 }) => {
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const title = initialData ? "Editar painel" : "Criar novo painel"
     const description = initialData ? "Editar painel" : "Adicionar um novo painel"
@@ -76,7 +73,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
             setLoading(true)
             await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
             router.refresh();
-            router.push("/")
+            router.push(`/${params.storeId}/billboards`)
             toast.success("Painel deletado.")
         } catch (error) {
            toast.error("Tenha certeza de que removeu todas as categorias que usam este painel primeiro.") 
@@ -157,7 +154,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     );
 };
