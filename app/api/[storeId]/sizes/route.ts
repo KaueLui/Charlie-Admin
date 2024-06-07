@@ -17,11 +17,11 @@ export async function POST(
         }
 
         if(!name){
-            return new NextResponse("Name is required",{ status: 400 });
+            return new NextResponse("Nome é necessário.",{ status: 400 });
         }
 
         if(!value){
-            return new NextResponse("Value is required",{ status: 400 });
+            return new NextResponse("Valor é necessário.",{ status: 400 });
         }
 
         if(!params.storeId) {

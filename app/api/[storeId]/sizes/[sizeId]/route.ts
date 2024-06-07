@@ -8,7 +8,7 @@ export async function GET (
 ) {
     try {
     if(!params.sizeId){
-        return new NextResponse("Size ID is required", { status: 400}) 
+        return new NextResponse("Size id is required", { status: 400}) 
     }
 
         const size = await prismadb.size.findUnique({
@@ -39,7 +39,7 @@ export async function PATCH (
     }
 
     if(!name) {
-        return new NextResponse("Name is required", { status: 400}) 
+        return new NextResponse("name is required", { status: 400}) 
     }
 
     if(!value) {
@@ -47,7 +47,7 @@ export async function PATCH (
     }
     
     if(!params.sizeId){
-        return new NextResponse("Size id is required", { status: 400}) 
+        return new NextResponse("Size ID is required", { status: 400}) 
     }
 
     const storeByUserId = await prismadb.store.findFirst({
@@ -91,7 +91,7 @@ export async function DELETE (
     }
     
     if(!params.sizeId){
-        return new NextResponse("Size id is required", { status: 400}) 
+        return new NextResponse("Size ID is required", { status: 400}) 
     }
 
     const storeByUserId = await prismadb.store.findFirst({

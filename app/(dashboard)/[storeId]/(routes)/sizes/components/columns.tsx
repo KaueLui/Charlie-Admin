@@ -6,8 +6,8 @@ import { CellAction } from "./cell-action"
 export type SizeColumn = {
   id: string
   name: string
-  value: string 
-  createdAt: string
+  value: string
+  createdAt: string;
 }
 
 export const columns: ColumnDef<SizeColumn>[] = [
