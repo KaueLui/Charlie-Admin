@@ -55,7 +55,7 @@ model Category {
   @@index([billboardId])
 }
 
-model Size{
+model Size {
   id          String @id @default(uuid())
   storeId     String
   store       Store @relation("StoreToSize", fields: [storeId], references: [id])
@@ -68,7 +68,7 @@ model Size{
   @@index([storeId])
 }
 
-model Color{
+model Color {
   id          String @id @default(uuid())
   storeId     String
   store       Store @relation("StoreToColor", fields: [storeId], references: [id])
@@ -105,7 +105,7 @@ model Product {
   @@index([colorId])
 }
 
-model Image{
+model Image {
   id        String @id @default(uuid())
   productId String
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)

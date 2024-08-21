@@ -48,7 +48,7 @@ export default function StoreSwitcher({
                     size="sm"
                     role="combobox"
                     arie-expanded={open}
-                    aria-labe="Selecione uma loja"
+                    aria-label="Selecione uma loja"
                     className={cn("w-[200px] justify-between", className)}
                 >
                     <StoreIcon className="mr-2 h-4 w-4" />
