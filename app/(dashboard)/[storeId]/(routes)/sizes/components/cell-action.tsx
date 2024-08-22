@@ -33,9 +33,9 @@ export const CellAction: React.FC<CellActionProps> = ({
             setLoading(true)
             await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
             router.refresh();
-            toast.success("Painel deletado.")
+            toast.success("Tamanho deletado.")
         } catch (error) {
-           toast.error("Tenha certeza de que removeu todas as categorias que usam este painel primeiro.") 
+           toast.error("Tenha certeza de que removeu todas as categorias que usam este Tamanho primeiro.") 
         } finally{
             setLoading(false)
             setOpen(false)
