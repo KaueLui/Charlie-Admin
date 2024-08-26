@@ -129,25 +129,36 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                             </FormItem>
                             )}
                         />
-                        <FormField 
-                        control={form.control}
-                        name="value"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>
-                                    Value
-                                </FormLabel>
-                                <FormControl>
-                                    <div className="flex items-center gap-x-4">
-                                        <Input disabled={loading} placeholder="Valor da Cor" {...field} />
-                                        <div
-                                        className="border p-4 rounded-full"
-                                        style={{backgroundColor: field.value}}
-                                         />
-                                    </div>
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
+                        <FormField
+                            control={form.control}
+                            name="value"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Selecione a cor</FormLabel>
+                                    <FormControl>
+                                        <div className="flex items-center gap-x-4">
+                                            <div className="relative">
+                                                <input
+                                                    type="color"
+                                                    disabled={loading}
+                                                    {...field}
+                                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                                />
+                                                <button
+                                                    type="button"
+                                                    disabled={loading}
+                                                    className="border p-2 rounded-full focus:outline-none bg-gray-200" >
+                                                    <span className="material-icons text-black font-bold">V</span>
+                                                </button>
+                                            </div>
+                                            <div
+                                                className="border p-4 rounded-full"
+                                                style={{ backgroundColor: field.value }}
+                                            />
+                                        </div>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
                             )}
                         />
                     </div>
