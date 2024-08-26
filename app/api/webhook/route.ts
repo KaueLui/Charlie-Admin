@@ -50,11 +50,11 @@ export async function POST(req: Request) {
         await prismadb.product.updateMany ({
             where: {
                 id: {
-                    in: [...productIds]
+                    in: [...productIds],
                 }
             },
             data:{
-                isArchived: true 
+                isArchived: true,
             }
         });
     }

@@ -27,7 +27,7 @@ export async function POST(
     const products = await prismadb.product.findMany({
         where: {
             id: { 
-                in: productIds 
+                in: productIds
             }
         }
     });
@@ -38,7 +38,7 @@ export async function POST(
         line_items.push({
             quantity: 1,
             price_data: {
-                currency: "BRL",
+                currency: 'BRL',
                 product_data: {
                     name: product.name,
                 },
@@ -50,7 +50,7 @@ export async function POST(
     const order = await prismadb.order.create({
         data: {
             storeId: params.storeId,
-            isPaid: false,
+            isPaid: true,
             orderItems: {
                 create: productIds.map((productId: string) => ({
                     product: {
@@ -79,6 +79,6 @@ export async function POST(
     });
 
     return NextResponse.json({ url: session.url }, {
-        headers: corsHeaders
+        headers: corsHeaders,
     });
 }

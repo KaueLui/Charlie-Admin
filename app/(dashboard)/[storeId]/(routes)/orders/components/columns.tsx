@@ -18,20 +18,23 @@ export const columns: ColumnDef<OrderColumn>[] = [
     header: "Produtos",
   },
   {
-    accessorKey: "phone",
-    header: "Telefone",
-  },
-  {
-    accessorKey: "address",
-    header: "Endereço",
-  },
-  {
     accessorKey: "totalPrice",
     header: "Preço Total",
+  },
+  {
+    accessorKey: "createdAt",
+    header: "Data da Venda",
   },
   {
     accessorKey: "isPaid",
     header: "Pago",
   },
-
+  //{
+  //  accessorKey: "phone",
+  //  header: "Telefone",
+  //},
+  //{
+  //  accessorKey: "address",
+  //  header: "Endereço",
+  //},
 ]
